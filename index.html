@@ -28,6 +28,8 @@
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); }
         .hangover-gradient { background: linear-gradient(135deg, #DA251D 0%, #1E293B 100%); }
         .wedding-mode { border: 2px solid #FF758C; background-color: #FFF5F7; }
+        /* 自定義捲軸 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
@@ -55,17 +57,20 @@
 
     <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav max-w-[480px] mx-auto pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
         <div class="flex justify-around items-center h-16">
-            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold">
-                <i class="fas fa-map-marked-alt text-lg mb-1"></i><span class="text-[9px]">任務時程</span>
+            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-vn-red font-bold">
+                <i class="fas fa-calendar-alt text-lg mb-1"></i><span class="text-[8px]">任務時程</span>
             </button>
-            <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-building text-lg mb-1"></i><span class="text-[9px]">重要地點</span>
+            <button onclick="renderSeats()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
+                <i class="fas fa-chair text-lg mb-1"></i><span class="text-[8px]">晚宴座位</span>
             </button>
-            <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-utensils text-lg mb-1"></i><span class="text-[9px]">美食攻略</span>
+            <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
+                <i class="fas fa-map-marker-alt text-lg mb-1"></i><span class="text-[8px]">重要地點</span>
             </button>
-            <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
-                <i class="fas fa-suitcase text-lg mb-1"></i><span class="text-[9px]">戰袍清單</span>
+            <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
+                <i class="fas fa-utensils text-lg mb-1"></i><span class="text-[8px]">注意事項</span>
+            </button>
+            <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
+                <i class="fas fa-list-ul text-lg mb-1"></i><span class="text-[8px]">物品清單</span>
             </button>
         </div>
     </nav>
@@ -126,6 +131,44 @@
                 ]
             }
         ],
+        // 座位表資料 (根據 CSV 整理)
+        seating: [
+            {
+                tableName: "TABLE 1",
+                guests: [
+                    "1 Mr. Hải", "2 Mr. Thái Đạt", "3 Mr. Khiết", "4 Mr. Trung", "5 Mr. Duy", 
+                    "6 Ms. Meily Mia", "7 Mr. Trung Hậu", "8 Mr. Ste Phạm", "9 Ms. Hà Anh", "10 Ms. Hoa",
+                    "11 Ms. Duyên", "12 Mr. Hậu", "13 Mr. Hiếu", "14 Ms. Mỹ Linh", "15 Ms. Ly Ly",
+                    "16 Ms. Thanh Nhi", "17 Ms. Nguyệt Quế", "18 Mr. Duy Luân", "19 Mr. Mohamad Thắng", "20 Ms. My"
+                ]
+            },
+            {
+                tableName: "TABLE 2",
+                guests: [
+                    "21 Mr. Trường Thiên", "22 Ms. Thanh Tuyền", "23 Ms. Jenny Nguyen", "25 Ms. Quỳnh Trang", "26 Mr. Duy Mỹ",
+                    "27 Mr. Viết Duy", "28 Mr. Mint Nguyễn", "29 Ms. Hoàng Trinh", "30 Ms. Ngọc Ánh", "31 Ms. Thu Thảo",
+                    "32 Ms. Hà Anh Thư", "33 Ms. Kim", "34 Ms. Hà", "35 Mr. Minh", "36 Mr. Viết Tuấn",
+                    "37 Ms. Phượng", "38 Ms. Phúc", "39 Ms. Kim Yến", "40 Mr. Anh Tú", "41 Ms. Thúy Hiền",
+                    "42 Ms. Đan Thanh", "43 Mr. Quốc Minh", "44 Mr. Lê Hiệp", "45 Mr. Hà Vũ Quang", "46 Mr. Mai Huy",
+                    "47 Ms. Nhi Phan", "48 Ms. Thanh Hằng", "49 Ms. Tuyết Hương", "50 Ms. Thiên Hương"
+                ]
+            },
+            {
+                tableName: "女方親友桌 (Family)",
+                guests: [
+                    "51 Ms. Ngọc Thanh (Mẹ cô dâu)", "52 Ms. Ngọc Bích (dì Tư)", "53 Ms. Ngọc Hạnh (dì Năm)", 
+                    "54 Mr. Tánh ( cậu Hai)", "55 Mr. Tánh (cậu Ba)", "56 Ms. Xuân", "57 Ms. Trọng", 
+                    "58 Ms. Cúc", "59 Mr. Truyền", "60 Ms. Mai", "61 Ms. Ngọc Hà", 
+                    "62 Ms. Nguyệt (Bà Ngoại)", "63 Ms. Ngọc Thảo (dì)", "64 Mr. Quốc"
+                ]
+            },
+            {
+                tableName: "男方親友桌 (Groom)",
+                guests: [
+                    "66 Mr. 邱世忠 (Ba chú rể)", "67 Ms. 邱 (媽媽)", "68 Mr. 邱 (新郎)"
+                ]
+            }
+        ],
         info: {
             hotels: [
                 { name: "Holiday Inn & Suites Saigon Airport", addr: "18E Cong Hoa Street, Ward 4, Tan Binh", note: "3/21 迎娶基地", nav: "https://www.google.com/maps/search/Holiday+Inn+Saigon+Airport" },
@@ -148,7 +191,7 @@
 
     function updateNav(idx) {
         document.querySelectorAll('.nav-btn').forEach((btn, i) => {
-            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold" : "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400";
+            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/5 h-full text-vn-red font-bold" : "nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400";
         });
     }
 
@@ -166,11 +209,10 @@
                             <div class="absolute -left-1.5 top-5 w-3 h-3 rounded-full bg-white border-2 ${day.isWedding ? 'border-wedding-pink' : 'border-vn-red'}"></div>
                             <div class="flex justify-between items-start text-sm">
                                 <div class="flex-1">
-                                    <span class="text-[10px] text-slate-400 font-mono">${e.time}</span>
+                                    <span class="text-[10px] text-slate-400 font-mono">${e.time || ''}</span>
                                     <h3 class="font-bold block text-slate-800">${e.title}</h3>
                                     <p class="text-[11px] text-slate-500 mt-1">${e.desc}</p>
                                 </div>
-                                ${e.nav ? `<a href="${e.nav}" target="_blank" class="ml-2 p-2 ${day.isWedding ? 'text-wedding-pink bg-pink-50' : 'text-grab-green bg-green-50'} rounded-full"><i class="fas fa-location-arrow text-sm"></i></a>` : ''}
                             </div>
                         </div>
                     `).join('')}
@@ -179,67 +221,69 @@
         `).join('');
     }
 
-    function renderInfo() {
+    // 新增：渲染座位表 (直式)
+    function renderSeats() {
         updateNav(1);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="mb-4">
+                <h3 class="text-lg font-bold text-vn-red mb-2"><i class="fas fa-chair mr-2"></i> 晚宴座位查詢</h3>
+                <p class="text-xs text-slate-400">點擊下方桌次查看名單，依據編號入座。</p>
+            </div>
+            <div class="space-y-4">
+                ${tripData.seating.map(table => `
+                    <div class="bg-white rounded-xl shadow-sm border border-pink-100 overflow-hidden">
+                        <div class="bg-pink-50 px-4 py-3 border-b border-pink-100 flex justify-between items-center">
+                            <span class="font-bold text-wedding-pink text-sm tracking-widest">${table.tableName}</span>
+                            <span class="text-[10px] bg-white text-pink-400 px-2 py-0.5 rounded-full border border-pink-100">
+                                ${table.guests.length} 人
+                            </span>
+                        </div>
+                        <div class="p-3">
+                            <div class="grid grid-cols-1 gap-1">
+                                ${table.guests.map(name => `
+                                    <div class="flex items-center py-2 px-3 hover:bg-slate-50 rounded-lg border-b border-slate-50 last:border-0">
+                                        <i class="fas fa-user-circle text-slate-300 mr-3"></i>
+                                        <span class="text-xs text-slate-700 font-medium">${name}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="mt-8 p-4 bg-slate-100 rounded-lg text-center">
+                <p class="text-[10px] text-slate-400 italic">如有座位問題，請即刻聯繫伴郎團義父。</p>
+            </div>
+        `;
+    }
+
+    function renderInfo() {
+        updateNav(2);
         const container = document.getElementById('main-content');
         container.innerHTML = `
             <div class="space-y-6">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 婚禮重要據點</h3>
-                    <div class="space-y-4">
-                        ${tripData.info.hotels.map(h => `
-                            <div class="text-xs">
-                                <div class="font-bold text-sm text-slate-800">${h.name}</div>
-                                <div class="text-slate-500 my-1">${h.addr}</div>
-                                <div class="text-wedding-pink font-bold italic mb-2">📍 ${h.note}</div>
-                                <a href="${h.nav}" target="_blank" class="text-blue-600 underline">開啟地圖導航</a>
-                            </div>
-                        `).join('<hr class="my-2">')}
+                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 晚宴場地</h3>
+                    <div class="text-xs">
+                        <div class="font-bold text-sm text-slate-800">${tripData.info.hotels[0].name}</div>
+                        <div class="text-wedding-pink font-bold italic mt-2">📍 ${tripData.info.hotels[0].note}</div>
+                        <a href="${tripData.info.hotels[0].nav}" target="_blank" class="block mt-4 text-center bg-vn-red text-white py-2 rounded-lg font-bold">開啟 Google Maps</a>
                     </div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-plane mr-2"></i> 航班資訊</h3>
-                    <div class="text-xs font-mono bg-slate-800 p-3 rounded text-gold">${tripData.info.flight}</div>
                 </div>
             </div>`;
     }
 
     function renderGuide() {
-        updateNav(2);
+        updateNav(3);
         const container = document.getElementById('main-content');
-        container.innerHTML = `
-            <div class="space-y-4">
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
-                    <h3 class="font-bold border-b border-vn-red pb-2 mb-4 text-vn-red">義父生存攻略</h3>
-                    ${tripData.guide.essentials.map(t => `
-                        <div class="mb-5">
-                            <div class="text-[11px] font-bold text-slate-700 border-l-4 border-gold pl-2">${t.title}</div>
-                            <div class="text-xs text-slate-500 mt-2 leading-relaxed">${t.val}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>`;
+        container.innerHTML = `<div class="p-5 bg-white rounded-xl border border-slate-100"><h3 class="font-bold text-vn-red mb-4">注意事項</h3>${tripData.guide.essentials.map(t => `<div class="mb-4"><div class="text-[11px] font-bold text-slate-700 border-l-4 border-gold pl-2">${t.title}</div><div class="text-xs text-slate-500 mt-2">${t.val}</div></div>`).join('')}</div>`;
     }
 
     function renderLuggage() {
-        updateNav(3);
+        updateNav(4);
         const container = document.getElementById('main-content');
-        container.innerHTML = `
-            <div class="space-y-4">
-                ${tripData.luggage.map(cat => `
-                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
-                        <h3 class="font-bold border-b pb-2 mb-3 text-vn-red text-sm">${cat.category}</h3>
-                        <div class="grid grid-cols-2 gap-3">
-                            ${cat.items.map(item => `
-                                <label class="flex items-center space-x-2 cursor-pointer">
-                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-vn-red rounded border-gray-300">
-                                    <span class="text-xs text-slate-600">${item}</span>
-                                </label>
-                            `).join('')}
-                        </div>
-                    </div>
-                `).join('')}
-            </div>`;
+        container.innerHTML = `<div class="space-y-4">${tripData.luggage.map(cat => `<div class="bg-white p-5 rounded-xl border border-slate-100"><h3 class="font-bold text-vn-red text-sm mb-3">${cat.category}</h3><div class="grid grid-cols-2 gap-3">${cat.items.map(item => `<label class="flex items-center space-x-2 text-xs text-slate-600"><input type="checkbox" class="rounded border-gray-300 text-vn-red"><span>${item}</span></label>`).join('')}</div></div>`).join('')}</div>`;
     }
 
     document.addEventListener('DOMContentLoaded', renderItinerary);
