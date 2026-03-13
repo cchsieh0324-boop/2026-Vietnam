@@ -2,132 +2,247 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hangover Part 87：邱邱與他的義父們</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🥃 The Hangover Part 87：邱邱與他的義父們</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'vn-red': '#DA251D', 
+                        'grab-green': '#00B14F',  
+                        'gold': '#FFD700',
+                        'saigon-night': '#1E293B',
+                        'wedding-pink': '#FF758C'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f9fafb; color: #374151; }
-        .gradient-header { background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%); }
-        .card { background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); }
-        .day-badge { background-color: #4ECDC4; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: bold; }
-        .wedding-special { border: 2px dashed #FF6B6B; background-color: #FFF5F5; }
+        body { background-color: #f1f5f9; font-family: 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .app-container { max-width: 480px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; position: relative; padding-bottom: 80px;}
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); }
+        .hangover-gradient { background: linear-gradient(135deg, #DA251D 0%, #1E293B 100%); }
+        .wedding-mode { border: 2px solid #FF758C; background-color: #FFF5F7; }
     </style>
 </head>
-<body class="pb-12">
+<body class="text-slate-800 antialiased">
 
-    <header class="gradient-header text-white py-12 px-6 text-center shadow-lg mb-8">
-        <h1 class="text-3xl font-bold mb-2">🇻🇳 The Hangover Part 87</h1>
-        <p class="text-xl opacity-90">邱邱與他的義父們</p>
-        <div class="mt-4 inline-block bg-white/20 backdrop-blur-md px-4 py-2 rounded-lg text-sm">
-            2026.03.18 - 03.23 | 胡志明市
+<div class="app-container" id="app">
+    <header class="sticky top-0 z-50 hangover-gradient text-white px-4 py-4 shadow-lg">
+        <div class="flex justify-between items-center">
+            <div class="flex-1">
+                <h1 class="text-lg font-bold tracking-tight leading-tight">
+                    🥃 The Hangover Part 87
+                </h1>
+                <p class="text-[11px] text-gold font-medium tracking-tighter mt-0.5 opacity-90">
+                    邱邱與他的義父們 | 🇻🇳 伴郎團執行手冊
+                </p>
+            </div>
+            <div class="text-right ml-2">
+                <div class="text-[10px] font-medium bg-white/20 backdrop-blur px-2 py-1 rounded-full whitespace-nowrap border border-white/30">
+                    <i class="fas fa-ring mr-1"></i> <span>Wedding Day</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-md mx-auto px-4 space-y-6">
+    <main class="p-4 space-y-6" id="main-content"></main>
 
-        <section class="card p-5 border-l-4 border-blue-500">
-            <h2 class="font-bold text-lg mb-3"><i class="fa-solid fa-plane-departure mr-2"></i> 航班資訊</h2>
-            <div class="flex justify-between text-sm">
-                <div>
-                    <p class="text-gray-500">去程 CI 783</p>
-                    <p class="font-bold text-blue-600">03/18 14:10 T1</p>
-                </div>
-                <div class="text-center self-center text-gray-400">➡️</div>
-                <div class="text-right">
-                    <p class="text-gray-500">回程 CI 782</p>
-                    <p class="font-bold text-blue-600">03/23 11:00 T2</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="space-y-4">
-            <div class="card p-5">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge">Day 1 | 03.18</span>
-                    <span class="text-sm text-gray-400">抵達西貢</span>
-                </div>
-                <ul class="space-y-3">
-                    <li class="flex items-start"><i class="fa-solid fa-taxi mt-1 mr-3 text-green-500"></i> 機場叫 Grab 直達市區飯店。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-utensils mt-1 mr-3 text-orange-400"></i> <b>Phở Lệ (麗錦河粉)</b>：第一餐就吃最道地的南越滋味。</li>
-                </ul>
-            </div>
-
-            <div class="card p-5">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge">Day 2 | 03.19</span>
-                    <span class="text-sm text-gray-400">法式悠閒</span>
-                </div>
-                <ul class="space-y-3">
-                    <li class="flex items-start"><i class="fa-solid fa-utensils mt-1 mr-3 text-orange-400"></i> <b>Bánh Mì Huỳnh Hoa</b>：傳說中的法國麵包天花板。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-coffee mt-1 mr-3 text-brown-600"></i> <b>咖啡公寓</b>：挑一間喜歡的店，俯瞰步行街。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-utensils mt-1 mr-3 text-orange-400"></i> <b>Pizza 4P's</b>：必點 Burrata 起司披薩。</li>
-                </ul>
-            </div>
-
-            <div class="card p-5">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge">Day 3 | 03.20</span>
-                    <span class="text-sm text-gray-400">視覺與味覺</span>
-                </div>
-                <ul class="space-y-3">
-                    <li class="flex items-start"><i class="fa-solid fa-camera mt-1 mr-3 text-pink-500"></i> <b>粉紅教堂</b>：拍帥照後喝杯椰奶咖啡。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-spa mt-1 mr-3 text-purple-400"></i> <b>Miu Miu Spa</b>：婚禮前的放鬆時刻。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-utensils mt-1 mr-3 text-orange-400"></i> <b>Bếp Mẹ Ỉn</b>：隱藏版美味越南煎餅。</li>
-                </ul>
-            </div>
-
-            <div class="card p-5 wedding-special">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge !background-color-[#FF6B6B]">Day 4 | 03.21</span>
-                    <span class="text-sm text-red-500 font-bold">重點任務</span>
-                </div>
-                <div class="text-center py-4">
-                    <i class="fa-solid fa-ring text-4xl text-red-400 mb-2"></i>
-                    <p class="font-bold text-lg">今日忙碌：婚禮支援日</p>
-                    <p class="text-sm text-gray-600">全力協助義父，婚禮順利圓滿！</p>
-                </div>
-            </div>
-
-            <div class="card p-5">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge">Day 5 | 03.22</span>
-                    <span class="text-sm text-gray-400">最後衝刺</span>
-                </div>
-                <ul class="space-y-3">
-                    <li class="flex items-start"><i class="fa-solid fa-bag-shopping mt-1 mr-3 text-yellow-500"></i> <b>濱城市場</b>：採買伴手禮。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-utensils mt-1 mr-3 text-orange-400"></i> <b>Secret Garden</b>：在屋頂花園享用家常菜。</li>
-                    <li class="flex items-start"><i class="fa-solid fa-beer-mug-empty mt-1 mr-3 text-yellow-600"></i> <b>Pasteur Street</b>：精釀啤酒之夜。</li>
-                </ul>
-            </div>
-
-            <div class="card p-5 bg-gray-50 border border-gray-200">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="day-badge !bg-gray-400">Day 6 | 03.23</span>
-                    <span class="text-sm text-gray-400">滿載而歸</span>
-                </div>
-                <ul class="space-y-3">
-                    <li class="flex items-start text-gray-600"><i class="fa-solid fa-clock mt-1 mr-3"></i> 08:30 前往機場 (Grab)。</li>
-                    <li class="flex items-start text-gray-600"><i class="fa-solid fa-plane-arrival mt-1 mr-3"></i> 11:00 CI 782 起飛返台。</li>
-                </ul>
-            </div>
+    <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav max-w-[480px] mx-auto pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-around items-center h-16">
+            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold">
+                <i class="fas fa-map-marked-alt text-lg mb-1"></i><span class="text-[9px]">任務時程</span>
+            </button>
+            <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-building text-lg mb-1"></i><span class="text-[9px]">重要地點</span>
+            </button>
+            <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-utensils text-lg mb-1"></i><span class="text-[9px]">美食攻略</span>
+            </button>
+            <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-suitcase text-lg mb-1"></i><span class="text-[9px]">戰袍清單</span>
+            </button>
         </div>
+    </nav>
+</div>
 
-        <section class="mt-8 p-4 bg-blue-50 rounded-xl text-blue-800 text-sm">
-            <h3 class="font-bold mb-2"><i class="fa-solid fa-circle-info mr-1"></i> 行前提醒</h3>
-            <p>1. <b>交通：</b> Grab 設定好信用卡，避免找零煩惱。</p>
-            <p>2. <b>換匯：</b> 帶著美金或台幣，到檳城市場旁的銀樓換匯最划算。</p>
-            <p>3. <b>腸胃：</b> 路邊攤好誘人，但腸胃藥一定要記得帶！</p>
-        </section>
+<script>
+    const tripData = {
+        days: [
+            {
+                date: "03/18 (三)", loc: "抵達西貢：義父接見日",
+                events: [
+                    { time: "14:10", type: "flight", title: "桃園 T1 出發 (CI 783)", desc: "預計 17:00 抵達新山機場，辦理入境。", nav: "https://www.google.com/maps/search/SGN+Airport" },
+                    { time: "20:00", type: "food", title: "Phở Lệ (麗錦河粉)", desc: "西貢最強牛肉河粉，開啟味蕾之旅。", nav: "https://www.google.com/maps/search/Pho+Le+District+5" }
+                ]
+            },
+            {
+                date: "03/19 (四)", loc: "法式風情與咖啡公寓",
+                events: [
+                    { time: "10:00", type: "food", title: "Bánh Mì Huỳnh Hoa", desc: "料多到滿出來的法國麵包，建議共享。", nav: "https://www.google.com/maps/search/Banh+Mi+Huynh+Hoa" },
+                    { time: "14:30", type: "spot", title: "咖啡公寓 (The Cafe Apartment)", desc: "文青聖地，大推 % Arabica 或眺望街景。", nav: "https://www.google.com/maps/search/The+Cafe+Apartment" }
+                ]
+            },
+            {
+                date: "03/20 (五)", loc: "粉紅幻境與戰前按摩",
+                events: [
+                    { time: "10:30", type: "spot", title: "粉紅教堂", desc: "拍完帥照去對面喝椰奶咖啡 (Cộng Cà Phê)。", nav: "https://www.google.com/maps/search/Tan+Dinh+Church" },
+                    { time: "15:30", type: "spa", title: "Miu Miu Spa 預定", desc: "婚禮前的高級桑拿，放鬆身心準備明日戰鬥。", nav: "https://www.google.com/maps/search/Miu+Miu+Spa" }
+                ]
+            },
+            {
+                date: "03/21 (六)", loc: "✨ 核心任務：Wedding Day ✨",
+                isWedding: true,
+                events: [
+                    { time: "06:00", type: "food", title: "Holiday Inn 早餐", desc: "義父們集合吃飽，體力是婚禮的本錢。", nav: "" },
+                    { time: "09:00", type: "wedding", title: "Holiday Inn 拍照錄影", desc: "伴郎團準備出發影片/照片拍攝 (晚宴播放用)。", nav: "" },
+                    { time: "10:00", type: "transport", title: "前往 Vy 家 (老婆家)", desc: "交通時間約半小時，檢查禮金/戒子/道具。", nav: "" },
+                    { time: "10:30", type: "wedding", title: "迎娶儀式準備", desc: "最後確認迎娶流程，深呼吸。", nav: "" },
+                    { time: "11:00", type: "wedding", title: "迎娶儀式 (Tea Ceremony)", desc: "正式儀式開始，現場提供飲料與小點心。", nav: "" },
+                    { time: "13:00", type: "wedding", title: "拍照攝影時間", desc: "大合照，抓緊時間捕捉最帥瞬間。", nav: "" },
+                    { time: "13:30", type: "transport", title: "返回 Holiday Inn", desc: "交通回程半小時，稍作整理休息。", nav: "" },
+                    { time: "14:00", type: "free", title: "自由活動時間", desc: "短暫補眠或西貢街頭補水。", nav: "" },
+                    { time: "17:30", type: "transport", title: "前往 The Myst", desc: "交通半小時，準備參與盛大晚宴。", nav: "https://www.google.com/maps/search/The+Myst+Dong+Khoi" },
+                    { time: "18:30", type: "wedding", title: "晚宴正式開始 (The Myst)", desc: "開喝時刻！邱邱與義父們的慶祝高峰。", nav: "" },
+                    { time: "21:30", type: "free", title: "自由活動 / After Party", desc: "西貢夜晚才剛開始，酒水續杯。", nav: "" }
+                ]
+            },
+            {
+                date: "03/22 (日)", loc: "最後血拼與夜景微醺",
+                events: [
+                    { time: "11:00", type: "shop", title: "濱城市場採買", desc: "腰果、咖啡豆，記得發揮義父的氣勢殺價。", nav: "https://www.google.com/maps/search/Ben+Thanh+Market" },
+                    { time: "20:00", type: "drink", title: "Chill Skybar", desc: "俯瞰西貢夜景，總結這場傳奇旅程。", nav: "https://www.google.com/maps/search/Chill+Skybar" }
+                ]
+            },
+            {
+                date: "03/23 (一)", loc: "滿載而歸 ➔ 溫暖的家",
+                events: [
+                    { time: "08:30", type: "transport", title: "Grab 前往機場", desc: "CI 782 (11:00 起飛)，建議提早報到。", nav: "" }
+                ]
+            }
+        ],
+        info: {
+            hotels: [
+                { name: "Holiday Inn & Suites Saigon Airport", addr: "18E Cong Hoa Street, Ward 4, Tan Binh", note: "3/21 迎娶基地", nav: "https://www.google.com/maps/search/Holiday+Inn+Saigon+Airport" },
+                { name: "The Myst Dong Khoi", addr: "6-8 Ho Huan Nghiep, Ben Nghe, District 1", note: "3/21 晚宴場地", nav: "https://www.google.com/maps/search/The+Myst+Dong+Khoi" }
+            ],
+            flight: "✈️ 去：CI 783 (14:10) | ✈️ 回：CI 782 (11:00)"
+        },
+        guide: {
+            essentials: [
+                { title: "🚗 交通建議", val: "當天轉場多，請預留 Grab 叫車時間，建議提前 10 分鐘預約。" },
+                { title: "👔 婚禮服裝", val: "三月西貢悶熱，室外儀式會流汗，記得隨身帶小手帕與止汗劑。" },
+                { title: "📱 聯絡通訊", val: "確保 Zalo/Line 群組通知開啟，方便義父團即時溝通。" }
+            ]
+        },
+        luggage: [
+            { category: "婚禮必備", items: ["帥就完事了", "紅包袋", "行動電源 (拍影片用)"] },
+            { category: "日常用品", items: ["腸胃藥", "防曬油", "墨鏡", "換匯美金/台幣"] }
+        ]
+    };
 
-    </main>
+    function updateNav(idx) {
+        document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold" : "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400";
+        });
+    }
 
-    <footer class="text-center mt-12 text-gray-400 text-xs px-6">
-        <p>© 2026 The Hangover Part 87 - 邱邱與他的義父們 專屬計畫</p>
-        <p class="mt-2">Made with ❤️ for Saigon Trip</p>
-    </footer>
+    function renderItinerary() {
+        updateNav(0);
+        const container = document.getElementById('main-content');
+        container.innerHTML = tripData.days.map(day => `
+            <div class="rounded-xl shadow-sm border ${day.isWedding ? 'wedding-mode' : 'bg-white border-slate-100'} overflow-hidden mb-6">
+                <div class="${day.isWedding ? 'bg-wedding-pink text-white' : 'bg-slate-800 text-white'} px-4 py-2 flex justify-between items-center">
+                    <h2 class="font-bold text-sm">${day.date} | ${day.loc}</h2>
+                </div>
+                <div class="p-2">
+                    ${day.events.map(e => `
+                        <div class="relative pl-6 py-3 border-l border-slate-100 ml-4">
+                            <div class="absolute -left-1.5 top-5 w-3 h-3 rounded-full bg-white border-2 ${day.isWedding ? 'border-wedding-pink' : 'border-vn-red'}"></div>
+                            <div class="flex justify-between items-start text-sm">
+                                <div class="flex-1">
+                                    <span class="text-[10px] text-slate-400 font-mono">${e.time}</span>
+                                    <h3 class="font-bold block text-slate-800">${e.title}</h3>
+                                    <p class="text-[11px] text-slate-500 mt-1">${e.desc}</p>
+                                </div>
+                                ${e.nav ? `<a href="${e.nav}" target="_blank" class="ml-2 p-2 ${day.isWedding ? 'text-wedding-pink bg-pink-50' : 'text-grab-green bg-green-50'} rounded-full"><i class="fas fa-location-arrow text-sm"></i></a>` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
 
+    function renderInfo() {
+        updateNav(1);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="space-y-6">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 婚禮重要據點</h3>
+                    <div class="space-y-4">
+                        ${tripData.info.hotels.map(h => `
+                            <div class="text-xs">
+                                <div class="font-bold text-sm text-slate-800">${h.name}</div>
+                                <div class="text-slate-500 my-1">${h.addr}</div>
+                                <div class="text-wedding-pink font-bold italic mb-2">📍 ${h.note}</div>
+                                <a href="${h.nav}" target="_blank" class="text-blue-600 underline">開啟地圖導航</a>
+                            </div>
+                        `).join('<hr class="my-2">')}
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-plane mr-2"></i> 航班資訊</h3>
+                    <div class="text-xs font-mono bg-slate-800 p-3 rounded text-gold">${tripData.info.flight}</div>
+                </div>
+            </div>`;
+    }
+
+    function renderGuide() {
+        updateNav(2);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold border-b border-vn-red pb-2 mb-4 text-vn-red">義父生存攻略</h3>
+                    ${tripData.guide.essentials.map(t => `
+                        <div class="mb-5">
+                            <div class="text-[11px] font-bold text-slate-700 border-l-4 border-gold pl-2">${t.title}</div>
+                            <div class="text-xs text-slate-500 mt-2 leading-relaxed">${t.val}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+    }
+
+    function renderLuggage() {
+        updateNav(3);
+        const container = document.getElementById('main-content');
+        container.innerHTML = `
+            <div class="space-y-4">
+                ${tripData.luggage.map(cat => `
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                        <h3 class="font-bold border-b pb-2 mb-3 text-vn-red text-sm">${cat.category}</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            ${cat.items.map(item => `
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-vn-red rounded border-gray-300">
+                                    <span class="text-xs text-slate-600">${item}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderItinerary);
+</script>
 </body>
 </html>
