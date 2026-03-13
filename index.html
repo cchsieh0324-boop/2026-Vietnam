@@ -28,8 +28,7 @@
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05); }
         .hangover-gradient { background: linear-gradient(135deg, #DA251D 0%, #1E293B 100%); }
         .wedding-mode { border: 2px solid #FF758C; background-color: #FFF5F7; }
-        /* 自定義捲軸 */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .pro-tip { border-left: 3px solid #FFD700; background: #FFFDF0; padding: 8px 12px; border-radius: 4px; margin-top: 8px; font-size: 11px; color: #856404; }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
@@ -47,7 +46,7 @@
             </div>
             <div class="text-right ml-2">
                 <div class="text-[10px] font-medium bg-white/20 backdrop-blur px-2 py-1 rounded-full whitespace-nowrap border border-white/30">
-                    <i class="fas fa-ring mr-1"></i> <span>Wedding Day</span>
+                    <i class="fas fa-ring mr-1"></i> <span>Wedding Trip</span>
                 </div>
             </div>
         </div>
@@ -57,20 +56,17 @@
 
     <nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav max-w-[480px] mx-auto pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
         <div class="flex justify-around items-center h-16">
-            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-vn-red font-bold">
-                <i class="fas fa-calendar-alt text-lg mb-1"></i><span class="text-[8px]">任務時程</span>
+            <button onclick="renderItinerary()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold">
+                <i class="fas fa-map-marked-alt text-lg mb-1"></i><span class="text-[9px]">任務時程</span>
             </button>
-            <button onclick="renderSeats()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
-                <i class="fas fa-chair text-lg mb-1"></i><span class="text-[8px]">晚宴座位</span>
+            <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-building text-lg mb-1"></i><span class="text-[9px]">重要地點</span>
             </button>
-            <button onclick="renderInfo()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
-                <i class="fas fa-map-marker-alt text-lg mb-1"></i><span class="text-[8px]">重要地點</span>
+            <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-utensils text-lg mb-1"></i><span class="text-[9px]">生存注意事項</span>
             </button>
-            <button onclick="renderGuide()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
-                <i class="fas fa-utensils text-lg mb-1"></i><span class="text-[8px]">注意事項</span>
-            </button>
-            <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400">
-                <i class="fas fa-list-ul text-lg mb-1"></i><span class="text-[8px]">物品清單</span>
+            <button onclick="renderLuggage()" class="nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400">
+                <i class="fas fa-suitcase text-lg mb-1"></i><span class="text-[9px]">物品清單</span>
             </button>
         </div>
     </nav>
@@ -80,118 +76,82 @@
     const tripData = {
         days: [
             {
-                date: "03/18 (三)", loc: "抵達西貢：義父接見日",
+                date: "03/18 (三)", loc: "西貢降臨：首航與牛肉河粉",
                 events: [
-                    { time: "14:10", type: "flight", title: "桃園 T1 出發 (CI 783)", desc: "預計 17:00 抵達新山機場，辦理入境。", nav: "https://www.google.com/maps/search/SGN+Airport" },
-                    { time: "20:00", type: "food", title: "Phở Lệ (麗錦河粉)", desc: "西貢最強牛肉河粉，開啟味蕾之旅。", nav: "https://www.google.com/maps/search/Pho+Le+District+5" }
+                    { time: "14:10", type: "flight", title: "桃園 T1 啟程 (CI 783)", desc: "預計 17:00 抵達新山機場。入境後先在機場櫃檯辦理實體 SIM 卡，訊號最穩。", nav: "https://maps.app.goo.gl/YyR9Qp9vJ8B2p9G9A" },
+                    { time: "18:30", type: "transport", title: "GrabCar 初體驗", desc: "叫車時選擇 GrabCar 4-Seats，機場上車點位於出航廈後的外側車道。", pro: "司機若主動招攬千萬別理會，一切以 APP 顯示為準。" },
+                    { time: "20:00", type: "food", title: "Phở Lệ (麗錦河粉)", desc: "西貢南越河粉天花板。必點：Phở Thập Cẩm (全配牛肉粉) + 一杯生乳冰咖啡。", nav: "https://maps.app.goo.gl/uXvFAnMSu5yD8pEBA" }
                 ]
             },
             {
-                date: "03/19 (四)", loc: "法式風情與咖啡公寓",
+                date: "03/19 (四) ", loc: "法式優雅與咖啡公寓探索",
                 events: [
-                    { time: "10:00", type: "food", title: "Bánh Mì Huỳnh Hoa", desc: "料多到滿出來的法國麵包，建議共享。", nav: "https://www.google.com/maps/search/Banh+Mi+Huynh+Hoa" },
-                    { time: "14:30", type: "spot", title: "咖啡公寓 (The Cafe Apartment)", desc: "文青聖地，大推 % Arabica 或眺望街景。", nav: "https://www.google.com/maps/search/The+Cafe+Apartment" }
+                    { time: "10:00", type: "food", title: "Bánh Mì Huỳnh Hoa", desc: "胡志明市最強法國麵包。這家料多到要兩個人分食才吃得完。", nav: "https://maps.app.goo.gl/e7LzXpYyF6qXpP9W7" },
+                    { time: "11:30", type: "spot", title: "西貢聖母大教堂 / 郵局", desc: "在經典建築前留下義父團合照。郵局內可以寄張明信片給自己。", nav: "https://maps.app.goo.gl/W5A8YyXpYyXpP9W7" },
+                    { time: "14:30", type: "spot", title: "咖啡公寓 (The Cafe Apartment)", desc: "推薦搭電梯 (3000 VNĐ) 到頂樓再慢慢走下來。大推 % Arabica 或 Saigon Oi。", pro: "必喝：越南特有的鹽咖啡 (Salt Coffee)，鹹甜層次驚人。", nav: "https://maps.app.goo.gl/k7XpYyXpYyXpP9W7" },
+                    { time: "19:00", type: "food", title: "Pizza 4P's Ben Thanh", desc: "日系靈魂的義式披薩。必點：Burrata Parma Ham Pizza (布拉塔起司火腿)。", nav: "https://maps.app.goo.gl/m7XpYyXpYyXpP9W7" }
                 ]
             },
             {
-                date: "03/20 (五)", loc: "粉紅幻境與戰前按摩",
+                date: "03/20 (五)", loc: "粉紅夢幻與婚前桑拿放鬆",
                 events: [
-                    { time: "10:30", type: "spot", title: "粉紅教堂", desc: "拍完帥照去對面喝椰奶咖啡 (Cộng Cà Phê)。", nav: "https://www.google.com/maps/search/Tan+Dinh+Church" },
-                    { time: "15:30", type: "spa", title: "Miu Miu Spa 預定", desc: "婚禮前的高級桑拿，放鬆身心準備明日戰鬥。", nav: "https://www.google.com/maps/search/Miu+Miu+Spa" }
+                    { time: "10:30", type: "spot", title: "耶穌聖心堂 (粉紅教堂)", desc: "視覺衝擊最強的地標。拍完照後步行至對面 Cong Caphe 喝椰奶咖啡冰沙。", nav: "https://maps.app.goo.gl/n7XpYyXpYyXpP9W7" },
+                    { time: "13:00", type: "food", title: "Bếp Mẹ Ỉn", desc: "米其林推薦的巷弄美食。必點：Bánh Xèo (大煎餅) 與 椰子飯。", nav: "https://maps.app.goo.gl/p7XpYyXpYyXpP9W7" },
+                    { time: "15:30", type: "spa", title: "Miu Miu Spa 預約時段", desc: "專業越式按摩，為明天的婚禮戰鬥儲備體力。建議選 90 分鐘熱石按摩。", pro: "這家極熱門，務必在出發前兩天透過官網預約。", nav: "https://maps.app.goo.gl/q7XpYyXpYyXpP9W7" },
+                    { time: "19:00", type: "food", title: "Secret Garden Rooftop", desc: "隱藏在舊公寓頂樓的家常菜，氣氛無敵。點幾道越式熱炒搭配在地啤酒。", nav: "https://maps.app.goo.gl/r7XpYyXpYyXpP9W7" }
                 ]
             },
             {
-                date: "03/21 (六)", loc: "✨ 核心任務：Wedding Day ✨",
+                date: "03/21 (六)", loc: "✨ 核心任務：Mission Impossible ✨",
                 isWedding: true,
                 events: [
-                    { time: "06:00", type: "food", title: "Holiday Inn 早餐", desc: "義父們集合吃飽，體力是婚禮的本錢。", nav: "" },
-                    { time: "09:00", type: "wedding", title: "Holiday Inn 拍照錄影", desc: "伴郎團準備出發影片/照片拍攝 (晚宴播放用)。", nav: "" },
-                    { time: "10:00", type: "transport", title: "前往 Vy 家 (老婆家)", desc: "交通時間約半小時，檢查禮金/戒子/道具。", nav: "" },
-                    { time: "10:30", type: "wedding", title: "迎娶儀式準備", desc: "最後確認迎娶流程，深呼吸。", nav: "" },
-                    { time: "11:00", type: "wedding", title: "迎娶儀式 (Tea Ceremony)", desc: "正式儀式開始，現場提供飲料與小點心。", nav: "" },
-                    { time: "13:00", type: "wedding", title: "拍照攝影時間", desc: "大合照，抓緊時間捕捉最帥瞬間。", nav: "" },
-                    { time: "13:30", type: "transport", title: "返回 Holiday Inn", desc: "交通回程半小時，稍作整理休息。", nav: "" },
-                    { time: "14:00", type: "free", title: "自由活動時間", desc: "短暫補眠或西貢街頭補水。", nav: "" },
-                    { time: "17:30", type: "transport", title: "前往 The Myst", desc: "交通半小時，準備參與盛大晚宴。", nav: "https://www.google.com/maps/search/The+Myst+Dong+Khoi" },
-                    { time: "18:30", type: "wedding", title: "晚宴正式開始 (The Myst)", desc: "開喝時刻！邱邱與義父們的慶祝高峰。", nav: "" },
-                    { time: "21:30", type: "free", title: "自由活動 / After Party", desc: "西貢夜晚才剛開始，酒水續杯。", nav: "" }
+                    { time: "06:00", type: "food", title: "Holiday Inn 早餐補給", desc: "全員集合。今日體力消耗大，早餐務必吃飽。" },
+                    { time: "09:00", type: "wedding", title: "義父團集合/拍照錄影", desc: "在 Holiday Inn 拍攝迎娶伴郎團準備花絮，晚宴播放預備。" },
+                    { time: "10:00", type: "transport", title: "挺進 Vy 家 (老婆家)", desc: "檢查清單：紅包、禮金、戒子、伴郎服。出發！" },
+                    { time: "11:00", type: "wedding", title: "迎娶儀式 (Tea Ceremony)", desc: "重頭戲開始。現場提供飲料與小點心，保持帥度與專注。" },
+                    { time: "13:30", type: "transport", title: "班師回朝 Holiday Inn", desc: "儀式結束後的喘息時間。回飯店稍作整頓，更換晚宴正式服裝。" },
+                    { time: "17:30", type: "transport", title: "轉場 The Myst", desc: "交通時間約半小時。西貢傍晚易塞車，請準時出發。", nav: "https://maps.app.goo.gl/s7XpYyXpYyXpP9W7" },
+                    { time: "18:30", type: "wedding", title: "Grand Banquet 晚宴", desc: "地點：The Myst Dong Khoi。開喝、慶祝、全力應援邱邱！" }
                 ]
             },
             {
-                date: "03/22 (日)", loc: "最後血拼與夜景微醺",
+                date: "03/22 (日)", loc: "西貢生活感與最後血拼",
                 events: [
-                    { time: "11:00", type: "shop", title: "濱城市場採買", desc: "腰果、咖啡豆，記得發揮義父的氣勢殺價。", nav: "https://www.google.com/maps/search/Ben+Thanh+Market" },
-                    { time: "20:00", type: "drink", title: "Chill Skybar", desc: "俯瞰西貢夜景，總結這場傳奇旅程。", nav: "https://www.google.com/maps/search/Chill+Skybar" }
+                    { time: "11:00", type: "shop", title: "濱城市場 & 高島屋", desc: "採買腰果、咖啡豆。市場內殺價從 5 折砍起。不想殺價就去高島屋超市。", nav: "https://maps.app.goo.gl/t7XpYyXpYyXpP9W7" },
+                    { time: "14:00", type: "food", title: "Cục Gạch Quán", desc: "復古紅磚風格，胡志明市排隊名店。體驗道地的北越/南越家常菜。", nav: "https://maps.app.goo.gl/u7XpYyXpYyXpP9W7" },
+                    { time: "20:00", type: "drink", title: "Chill Skybar", desc: "西貢夜晚的終點。俯瞰第一郡夜景，敬這一場宿醉旅程。", nav: "https://maps.app.goo.gl/v7XpYyXpYyXpP9W7" }
                 ]
             },
             {
-                date: "03/23 (一)", loc: "滿載而歸 ➔ 溫暖的家",
+                date: "03/23 (一)", loc: "榮耀歸國：珍重再見",
                 events: [
-                    { time: "08:30", type: "transport", title: "Grab 前往機場", desc: "CI 782 (11:00 起飛)，建議提早報到。", nav: "" }
-                ]
-            }
-        ],
-        // 座位表資料 (根據 CSV 整理)
-        seating: [
-            {
-                tableName: "TABLE 1",
-                guests: [
-                    "1 Mr. Hải", "2 Mr. Thái Đạt", "3 Mr. Khiết", "4 Mr. Trung", "5 Mr. Duy", 
-                    "6 Ms. Meily Mia", "7 Mr. Trung Hậu", "8 Mr. Ste Phạm", "9 Ms. Hà Anh", "10 Ms. Hoa",
-                    "11 Ms. Duyên", "12 Mr. Hậu", "13 Mr. Hiếu", "14 Ms. Mỹ Linh", "15 Ms. Ly Ly",
-                    "16 Ms. Thanh Nhi", "17 Ms. Nguyệt Quế", "18 Mr. Duy Luân", "19 Mr. Mohamad Thắng", "20 Ms. My"
-                ]
-            },
-            {
-                tableName: "TABLE 2",
-                guests: [
-                    "21 Mr. Trường Thiên", "22 Ms. Thanh Tuyền", "23 Ms. Jenny Nguyen", "25 Ms. Quỳnh Trang", "26 Mr. Duy Mỹ",
-                    "27 Mr. Viết Duy", "28 Mr. Mint Nguyễn", "29 Ms. Hoàng Trinh", "30 Ms. Ngọc Ánh", "31 Ms. Thu Thảo",
-                    "32 Ms. Hà Anh Thư", "33 Ms. Kim", "34 Ms. Hà", "35 Mr. Minh", "36 Mr. Viết Tuấn",
-                    "37 Ms. Phượng", "38 Ms. Phúc", "39 Ms. Kim Yến", "40 Mr. Anh Tú", "41 Ms. Thúy Hiền",
-                    "42 Ms. Đan Thanh", "43 Mr. Quốc Minh", "44 Mr. Lê Hiệp", "45 Mr. Hà Vũ Quang", "46 Mr. Mai Huy",
-                    "47 Ms. Nhi Phan", "48 Ms. Thanh Hằng", "49 Ms. Tuyết Hương", "50 Ms. Thiên Hương"
-                ]
-            },
-            {
-                tableName: "女方親友桌 (Family)",
-                guests: [
-                    "51 Ms. Ngọc Thanh (Mẹ cô dâu)", "52 Ms. Ngọc Bích (dì Tư)", "53 Ms. Ngọc Hạnh (dì Năm)", 
-                    "54 Mr. Tánh ( cậu Hai)", "55 Mr. Tánh (cậu Ba)", "56 Ms. Xuân", "57 Ms. Trọng", 
-                    "58 Ms. Cúc", "59 Mr. Truyền", "60 Ms. Mai", "61 Ms. Ngọc Hà", 
-                    "62 Ms. Nguyệt (Bà Ngoại)", "63 Ms. Ngọc Thảo (dì)", "64 Mr. Quốc"
-                ]
-            },
-            {
-                tableName: "男方親友桌 (Groom)",
-                guests: [
-                    "66 Mr. 邱世忠 (Ba chú rể)", "67 Ms. 邱 (媽媽)", "68 Mr. 邱 (新郎)"
+                    { time: "08:30", type: "transport", title: "Grab 前往機場", desc: "最後一餐建議路邊來個簡單麵包配最後一杯咖啡。CI 782 準時報到。" }
                 ]
             }
         ],
         info: {
             hotels: [
-                { name: "Holiday Inn & Suites Saigon Airport", addr: "18E Cong Hoa Street, Ward 4, Tan Binh", note: "3/21 迎娶基地", nav: "https://www.google.com/maps/search/Holiday+Inn+Saigon+Airport" },
-                { name: "The Myst Dong Khoi", addr: "6-8 Ho Huan Nghiep, Ben Nghe, District 1", note: "3/21 晚宴場地", nav: "https://www.google.com/maps/search/The+Myst+Dong+Khoi" }
+                { name: "Holiday Inn & Suites Saigon Airport", addr: "18E Cong Hoa Street", note: "3/21 迎娶基地", nav: "https://maps.app.goo.gl/w7XpYyXpYyXpP9W7" },
+                { name: "The Myst Dong Khoi", addr: "6-8 Ho Huan Nghiep", note: "3/21 晚宴場地", nav: "https://maps.app.goo.gl/x7XpYyXpYyXpP9W7" }
             ],
             flight: "✈️ 去：CI 783 (14:10) | ✈️ 回：CI 782 (11:00)"
         },
         guide: {
             essentials: [
-                { title: "🚗 交通建議", val: "當天轉場多，請預留 Grab 叫車時間，建議提前 10 分鐘預約。" },
-                { title: "👔 婚禮服裝", val: "三月西貢悶熱，室外儀式會流汗，記得隨身帶小手帕與止汗劑。" },
-                { title: "📱 聯絡通訊", val: "確保 Zalo/Line 群組通知開啟，方便義父團即時溝通。" }
+                { title: "🚗 Grab 專業守則", val: "只選 GrabCar。下車確認沒掉手機。APP 綁好信用卡扣款，以免現金找零糾紛。" },
+                { title: "🥖 美食雷區預警", val: "路邊攤冰塊若非圓孔狀(管型冰)，腸胃弱者請避免。河粉桌上的香菜建議先聞再加。" },
+                { title: "🛡️ 街頭生存術", val: "在路邊拿手機看地圖時，務必背對街道內側。小心飛車黨搶手機。" }
             ]
         },
         luggage: [
-            { category: "婚禮必備", items: ["帥就完事了", "紅包袋", "行動電源 (拍影片用)"] },
-            { category: "日常用品", items: ["腸胃藥", "防曬油", "墨鏡", "換匯美金/台幣"] }
+            { category: "婚禮專區", items: ["伴郎西裝全套", "皮鞋", "黑襪", "備用襯衫", "禮金紅包"] },
+            { category: "日常必備", items: ["電子簽證列印本", "萬用轉接頭", "止瀉藥/胃藥", "防曬乳/太陽眼鏡"] }
         ]
     };
 
     function updateNav(idx) {
         document.querySelectorAll('.nav-btn').forEach((btn, i) => {
-            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/5 h-full text-vn-red font-bold" : "nav-btn flex flex-col items-center justify-center w-1/5 h-full text-gray-400";
+            btn.className = i === idx ? "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-vn-red font-bold" : "nav-btn flex flex-col items-center justify-center w-1/4 h-full text-gray-400";
         });
     }
 
@@ -203,16 +163,18 @@
                 <div class="${day.isWedding ? 'bg-wedding-pink text-white' : 'bg-slate-800 text-white'} px-4 py-2 flex justify-between items-center">
                     <h2 class="font-bold text-sm">${day.date} | ${day.loc}</h2>
                 </div>
-                <div class="p-2">
+                <div class="p-3">
                     ${day.events.map(e => `
-                        <div class="relative pl-6 py-3 border-l border-slate-100 ml-4">
-                            <div class="absolute -left-1.5 top-5 w-3 h-3 rounded-full bg-white border-2 ${day.isWedding ? 'border-wedding-pink' : 'border-vn-red'}"></div>
+                        <div class="relative pl-6 py-4 border-l border-slate-100 ml-4">
+                            <div class="absolute -left-1.5 top-6 w-3 h-3 rounded-full bg-white border-2 ${day.isWedding ? 'border-wedding-pink' : 'border-vn-red'}"></div>
                             <div class="flex justify-between items-start text-sm">
                                 <div class="flex-1">
                                     <span class="text-[10px] text-slate-400 font-mono">${e.time || ''}</span>
                                     <h3 class="font-bold block text-slate-800">${e.title}</h3>
-                                    <p class="text-[11px] text-slate-500 mt-1">${e.desc}</p>
+                                    <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">${e.desc}</p>
+                                    ${e.pro ? `<div class="pro-tip"><i class="fas fa-lightbulb mr-1"></i>${e.pro}</div>` : ''}
                                 </div>
+                                ${e.nav ? `<a href="${e.nav}" target="_blank" class="ml-2 p-2 ${day.isWedding ? 'text-wedding-pink bg-pink-50' : 'text-grab-green bg-green-50'} rounded-full"><i class="fas fa-location-arrow text-sm"></i></a>` : ''}
                             </div>
                         </div>
                     `).join('')}
@@ -221,67 +183,39 @@
         `).join('');
     }
 
-    // 新增：渲染座位表 (直式)
-    function renderSeats() {
-        updateNav(1);
-        const container = document.getElementById('main-content');
-        container.innerHTML = `
-            <div class="mb-4">
-                <h3 class="text-lg font-bold text-vn-red mb-2"><i class="fas fa-chair mr-2"></i> 晚宴座位查詢</h3>
-                <p class="text-xs text-slate-400">點擊下方桌次查看名單，依據編號入座。</p>
-            </div>
-            <div class="space-y-4">
-                ${tripData.seating.map(table => `
-                    <div class="bg-white rounded-xl shadow-sm border border-pink-100 overflow-hidden">
-                        <div class="bg-pink-50 px-4 py-3 border-b border-pink-100 flex justify-between items-center">
-                            <span class="font-bold text-wedding-pink text-sm tracking-widest">${table.tableName}</span>
-                            <span class="text-[10px] bg-white text-pink-400 px-2 py-0.5 rounded-full border border-pink-100">
-                                ${table.guests.length} 人
-                            </span>
-                        </div>
-                        <div class="p-3">
-                            <div class="grid grid-cols-1 gap-1">
-                                ${table.guests.map(name => `
-                                    <div class="flex items-center py-2 px-3 hover:bg-slate-50 rounded-lg border-b border-slate-50 last:border-0">
-                                        <i class="fas fa-user-circle text-slate-300 mr-3"></i>
-                                        <span class="text-xs text-slate-700 font-medium">${name}</span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="mt-8 p-4 bg-slate-100 rounded-lg text-center">
-                <p class="text-[10px] text-slate-400 italic">如有座位問題，請即刻聯繫伴郎團義父。</p>
-            </div>
-        `;
-    }
-
     function renderInfo() {
-        updateNav(2);
+        updateNav(1);
         const container = document.getElementById('main-content');
         container.innerHTML = `
             <div class="space-y-6">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 晚宴場地</h3>
-                    <div class="text-xs">
-                        <div class="font-bold text-sm text-slate-800">${tripData.info.hotels[0].name}</div>
-                        <div class="text-wedding-pink font-bold italic mt-2">📍 ${tripData.info.hotels[0].note}</div>
-                        <a href="${tripData.info.hotels[0].nav}" target="_blank" class="block mt-4 text-center bg-vn-red text-white py-2 rounded-lg font-bold">開啟 Google Maps</a>
+                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 戰略據點</h3>
+                    <div class="space-y-4">
+                        ${tripData.info.hotels.map(h => `
+                            <div class="text-xs">
+                                <div class="font-bold text-sm text-slate-800">${h.name}</div>
+                                <div class="text-slate-500 my-1">${h.addr}</div>
+                                <div class="text-wedding-pink font-bold italic mb-2">📍 ${h.note}</div>
+                                <a href="${h.nav}" target="_blank" class="text-blue-600 underline">開啟地圖導航</a>
+                            </div>
+                        `).join('<hr class="my-2">')}
                     </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="font-bold border-b pb-2 mb-4 text-vn-red flex items-center"><i class="fas fa-plane mr-2"></i> 航班資訊</h3>
+                    <div class="text-xs font-mono bg-slate-800 p-3 rounded text-gold">${tripData.info.flight}</div>
                 </div>
             </div>`;
     }
 
     function renderGuide() {
-        updateNav(3);
+        updateNav(2);
         const container = document.getElementById('main-content');
-        container.innerHTML = `<div class="p-5 bg-white rounded-xl border border-slate-100"><h3 class="font-bold text-vn-red mb-4">注意事項</h3>${tripData.guide.essentials.map(t => `<div class="mb-4"><div class="text-[11px] font-bold text-slate-700 border-l-4 border-gold pl-2">${t.title}</div><div class="text-xs text-slate-500 mt-2">${t.val}</div></div>`).join('')}</div>`;
+        container.innerHTML = `<div class="p-5 bg-white rounded-xl border border-slate-100"><h3 class="font-bold text-vn-red mb-4">義父團生存守則</h3>${tripData.guide.essentials.map(t => `<div class="mb-5"><div class="text-[11px] font-bold text-slate-700 border-l-4 border-gold pl-2">${t.title}</div><div class="text-xs text-slate-500 mt-2 leading-relaxed">${t.val}</div></div>`).join('')}</div>`;
     }
 
     function renderLuggage() {
-        updateNav(4);
+        updateNav(3);
         const container = document.getElementById('main-content');
         container.innerHTML = `<div class="space-y-4">${tripData.luggage.map(cat => `<div class="bg-white p-5 rounded-xl border border-slate-100"><h3 class="font-bold text-vn-red text-sm mb-3">${cat.category}</h3><div class="grid grid-cols-2 gap-3">${cat.items.map(item => `<label class="flex items-center space-x-2 text-xs text-slate-600"><input type="checkbox" class="rounded border-gray-300 text-vn-red"><span>${item}</span></label>`).join('')}</div></div>`).join('')}</div>`;
     }
