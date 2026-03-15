@@ -77,23 +77,26 @@
         days: [
             {
                 date: "03/18 (三)", loc: "西貢降臨：首航與牛肉河粉",
+                weather: { icon: "fa-sun", temp: "26-35°C" },
                 events: [
                     { time: "14:10", type: "flight", title: "桃園 T1 啟程 (CI 783)", desc: "預計 17:00 抵達新山機場。", nav: "https://www.google.com/maps/search/?api=1&query=Tan+Son+Nhat+International+Airport" },
                     { time: "18:30", type: "transport", title: "Grab 前往飯店入住", desc: "前往第一郡 The Myst Dong Khoi 辦理 Check-in。", nav: "https://www.google.com/maps/search/?api=1&query=The+Myst+Dong+Khoi" },
-                    { time: "20:00", type: "food", title: "Phở Lệ (麗錦河粉)", desc: "西貢南越河粉天花板。必點：全配牛肉粉 + 生乳冰咖啡。", nav: "https://www.google.com/maps/search/?api=1&query=Pho+Le+District+5" }
+                    { time: "20:00", type: "food", title: "Phở Lệ (麗錦河粉)", desc: "西貢南越河粉天花板。必點：全配牛肉粉 + 一杯生乳冰咖啡。", nav: "https://www.google.com/maps/search/?api=1&query=Pho+Le+District+5" }
                 ]
             },
             {
                 date: "03/19 (四) ", loc: "法式優雅與咖啡公寓探索",
+                weather: { icon: "fa-sun", temp: "25-36°C" },
                 events: [
                     { time: "10:00", type: "food", title: "Bánh Mì Huỳnh Hoa", desc: "傳說中的最強法國麵包。這家料多到要兩人共享。", nav: "https://www.google.com/maps/search/?api=1&query=Banh+Mi+Huynh+Hoa" },
-                    { time: "11:30", type: "spot", title: "西貢聖母大教堂 / 郵局", desc: "經典地標拍照。", nav: "https://www.google.com/maps/search/?api=1&query=Saigon+Notre+Dame+Cathedral" },
-                    { time: "14:30", type: "spot", title: "咖啡公寓 (The Cafe Apartment)", desc: "推薦搭電梯到頂樓。必喝：特有的鹽咖啡 (Salt Coffee)。", nav: "https://www.google.com/maps/search/?api=1&query=The+Cafe+Apartment+42+Nguyen+Hue" },
-                    { time: "19:00", type: "food", title: "Pizza 4P's Ben Thanh", desc: "必點：布拉塔起司火腿披薩。", nav: "https://www.google.com/maps/search/?api=1&query=Pizza+4Ps+Ben+Thanh" }
+                    { time: "11:30", type: "spot", title: "西貢聖母大教堂 / 郵局", desc: "經典地標拍照。", nav: "https://www.google.com/maps/search/?api=1&query=Saigon+Central+Post+Office" },
+                    { time: "14:30", type: "spot", title: "咖啡公寓 (The Cafe Apartment)", desc: "推薦搭電梯到頂樓。必喝：特有的鹽咖啡 (Salt Coffee)。", nav: "https://www.google.com/maps/search/?api=1&query=The+Cafe+Apartment+Saigon" },
+                    { time: "19:00", type: "food", title: "Pizza 4P's Ben Thanh", desc: "必點：布拉塔起司火腿披薩。", nav: "https://www.google.com/maps/search/?api=1&query=Pizza+4P's+Ben+Thanh" }
                 ]
             },
             {
                 date: "03/20 (五)", loc: "粉紅夢幻與婚前桑拿放鬆",
+                weather: { icon: "fa-cloud-sun", temp: "26-35°C" },
                 events: [
                     { time: "10:30", type: "spot", title: "耶穌聖心堂 (粉紅教堂)", desc: "視覺衝擊最強的地標。拍完照去對面喝椰奶咖啡冰沙。", nav: "https://www.google.com/maps/search/?api=1&query=Tan+Dinh+Church" },
                     { time: "15:30", type: "spa", title: "Miu Miu Spa 桑拿", desc: "專業越式按摩，為明天的任務儲備體力。", nav: "https://www.google.com/maps/search/?api=1&query=Miu+Miu+Spa+Saigon" }
@@ -102,19 +105,21 @@
             {
                 date: "03/21 (六)", loc: "✨ 核心任務：Wedding Day ✨",
                 isWedding: true,
+                weather: { icon: "fa-sun", temp: "25-36°C" },
                 events: [
-                    { time: "06:00", type: "transport", title: "移防至 Holiday Inn 早餐", desc: "全員集合。今日移入 Holiday Inn 迎娶基地。", nav: "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+%26+Suites+Saigon+Airport" },
+                    { time: "06:00", type: "transport", title: "移防至 Holiday Inn 早餐", desc: "全員集合。今日移入 Holiday Inn 迎娶基地。", nav: "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Suites+Saigon+Airport" },
                     { time: "09:00", type: "wedding", title: "義父團集合/拍照錄影", desc: "於 Holiday Inn 拍攝伴郎團花絮。" },
-					{ time: "10:00", type: "transport", title: "前往 Vy 家", desc: "交通約半小時。" },
+                    { time: "10:00", type: "transport", title: "前往 Vy 家", desc: "交通約半小時。" },
                     { time: "11:00", type: "wedding", title: "迎娶儀式 (Vy 家)", desc: "重頭戲開始！保持帥度與專注。" },
-					{ time: "13:00", type: "wedding", title: "拍照攝影時間", desc: "帥就完事了" }, 
-					{ time: "13:30", type: "transport", title: "返回Holiday Inn", desc: "自由活動到17:30出發晚宴" },
+                    { time: "13:00", type: "wedding", title: "拍照攝影時間", desc: "帥就完事了" }, 
+                    { time: "13:30", type: "transport", title: "返回Holiday Inn", desc: "自由活動到17:30出發晚宴" },
                     { time: "18:30", type: "wedding", title: "Grand Banquet 晚宴", desc: "地點：The Myst Dong Khoi。邱邱應援！", nav: "https://www.google.com/maps/search/?api=1&query=The+Myst+Dong+Khoi" },
-					{ time: "21:30", type: "wedding", title: "婚禮圓滿結束", desc: "為父老淚縱橫..." }
+                    { time: "21:30", type: "wedding", title: "婚禮圓滿結束", desc: "為父老淚縱橫..." }
                 ]
             },
             {
                 date: "03/22 (日)", loc: "生活感採買與最後血拼",
+                weather: { icon: "fa-sun", temp: "26-36°C" },
                 events: [
                     { time: "11:00", type: "shop", title: "濱城市場 & 高島屋", desc: "採買伴手禮。殺價從 5 折砍起。", nav: "https://www.google.com/maps/search/?api=1&query=Ben+Thanh+Market" },
                     { time: "20:00", type: "drink", title: "Chill Skybar", desc: "西貢夜晚終點。敬這場傳奇旅程。", nav: "https://www.google.com/maps/search/?api=1&query=Chill+Skybar+Saigon" }
@@ -122,6 +127,7 @@
             },
             {
                 date: "03/23 (一)", loc: "榮耀歸國：珍重再見",
+                weather: { icon: "fa-cloud-sun", temp: "25-35°C" },
                 events: [
                     { time: "08:30", type: "transport", title: "Grab 前往機場", desc: "長榮 CI 782 準時報到。" }
                 ]
@@ -139,7 +145,7 @@
                     name: "Holiday Inn & Suites Saigon Airport (3/21 - 3/22 入住)", 
                     addr: "18E Cộng Hòa, Phường 4, Tân Bình, Hồ Chí Minh", 
                     note: "3/21 迎娶基地，近機場便利", 
-                    nav: "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+%26+Suites+Saigon+Airport" 
+                    nav: "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Suites+Saigon+Airport" 
                 },
                 { 
                     name: "Edoya Hotel Ben Thanh (3/22 - 3/23 入住)", 
@@ -175,7 +181,13 @@
         container.innerHTML = tripData.days.map(day => `
             <div class="rounded-xl shadow-sm border ${day.isWedding ? 'wedding-mode' : 'bg-white border-slate-100'} overflow-hidden mb-6">
                 <div class="${day.isWedding ? 'bg-wedding-pink text-white' : 'bg-slate-800 text-white'} px-4 py-2 flex justify-between items-center">
-                    <h2 class="font-bold text-sm">${day.date} | ${day.loc}</h2>
+                    <div class="flex flex-col">
+                        <h2 class="font-bold text-sm">${day.date} | ${day.loc}</h2>
+                    </div>
+                    <div class="flex items-center bg-white/20 px-2 py-1 rounded-lg text-[10px] font-bold">
+                        <i class="fas ${day.weather.icon} mr-1"></i>
+                        <span>${day.weather.temp}</span>
+                    </div>
                 </div>
                 <div class="p-3">
                     ${day.events.map(e => `
@@ -210,7 +222,7 @@
                                 <div class="font-bold text-sm text-slate-800">${h.name}</div>
                                 <div class="text-slate-500 my-1 font-medium">${h.addr}</div>
                                 <div class="text-wedding-pink font-bold italic mb-2">📍 ${h.note}</div>
-                                <a href="${h.nav}" target="_blank" class="text-blue-600 underline">開啟 Google Maps 導航</a>
+                                <a href="${h.nav}" target="_blank" class="text-blue-600 underline font-bold">開啟 Google Maps 導航</a>
                             </div>
                         `).join('<hr class="my-2">')}
                     </div>
